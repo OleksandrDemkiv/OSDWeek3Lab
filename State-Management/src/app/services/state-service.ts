@@ -6,7 +6,7 @@ import { computed, Injectable, signal, Signal, WritableSignal } from '@angular/c
 export class StateService {
   private readonly _count = signal(0);
 
-  readonly Count: WritableSignal<number> = this._count;
+  readonly Count: Signal<number> = this._count.asReadonly();
   readonly doubleCount: Signal<number> = computed(() => this._count() * 2);
   
   increment() {
