@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { inject } from '@angular/core';
+import { StateService } from '../../services/state-service';
 
 @Component({
   selector: 'app-app-component',
@@ -7,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './app-component.css',
 })
 export class AppComponent {
+  state = inject(StateService);
 
+  increment() {
+    this.state.increment();
+  }
+
+  decrement() {
+    this.state.decrement();
+  }
 }
